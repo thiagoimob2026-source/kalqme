@@ -196,7 +196,7 @@ const LandingPage = () => {
                         </ul>
                         <div className="flex flex-col gap-2">
                             <a href="mailto:thiagoimob2026@gmail.com?subject=Interesse no Plano para Contadores" className="btn-pricing" style={{ marginBottom: '0.5rem' }}>Falar por E-mail</a>
-                            <a href="https://wa.me/5581988888888" target="_blank" rel="noreferrer" className="btn-pricing" style={{ background: '#25D366', color: 'white', borderColor: '#25D366' }}>Falar pelo WhatsApp</a>
+                            <a href="https://wa.me/5581991040983" target="_blank" rel="noreferrer" className="btn-pricing" style={{ background: '#25D366', color: 'white', borderColor: '#25D366' }}>Falar pelo WhatsApp</a>
                         </div>
                     </div>
                 </div>
