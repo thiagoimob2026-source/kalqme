@@ -162,7 +162,7 @@ const LandingPage = () => {
                         <div className="pricing-header">
                             <div className="card-tag">Gestão Inteligente Pessoal</div>
                             <h3>Kalq MEI Premium</h3>
-                            <p className="price-old">Assinatura acessível para qualquer MEI</p>
+                            <p className="price-subtitle">Assinatura acessível para qualquer MEI</p>
                             <p className="price">R$ 54,90<span className="price-label">/MÊS</span></p>
                             <p className="one-time-text">ou R$ 490,00/ano à vista.</p>
                         </div>
@@ -182,7 +182,7 @@ const LandingPage = () => {
                         <div className="pricing-header">
                             <div className="card-tag">Parceria Estratégica</div>
                             <h3>Kalq para Contadores</h3>
-                            <p className="price-old">Sua marca, nossa tecnologia</p>
+                            <p className="price-subtitle">Sua marca, nossa tecnologia</p>
                             <p className="price" style={{ fontSize: '1.5rem' }}>Personalizado</p>
                             <p className="one-time-text">Sob consulta</p>
                         </div>
@@ -194,7 +194,10 @@ const LandingPage = () => {
                             <li>✓ Manutenção e Updates Garantidos</li>
                             <li>✓ Painel de Controle para o Escritório</li>
                         </ul>
-                        <a href="mailto:contato@kalq.me?subject=Interesse no Plano para Contadores" className="btn-pricing">Falar com Consultor</a>
+                        <div className="flex flex-col gap-2">
+                            <a href="mailto:thiagoimob2026@gmail.com?subject=Interesse no Plano para Contadores" className="btn-pricing" style={{ marginBottom: '0.5rem' }}>Falar por E-mail</a>
+                            <a href="https://wa.me/5581988888888" target="_blank" rel="noreferrer" className="btn-pricing" style={{ background: '#25D366', color: 'white', borderColor: '#25D366' }}>Falar pelo WhatsApp</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -234,7 +237,7 @@ const LandingPage = () => {
                     </div>
                     <div className="footer-links">
                         <h4>Contato</h4>
-                        <a href="mailto:contato@kalq.me">contato@kalq.me</a>
+                        <a href="mailto:thiagoimob2026@gmail.com">thiagoimob2026@gmail.com</a>
                     </div>
                 </div>
                 <div className="footer-bottom">

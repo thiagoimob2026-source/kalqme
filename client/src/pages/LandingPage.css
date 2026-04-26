@@ -985,3 +985,12 @@
         grid-template-columns: 1fr 1fr;
     }
 }
+
+.price-subtitle {
+    text-decoration: none !important;
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    opacity: 0.8;
+}
