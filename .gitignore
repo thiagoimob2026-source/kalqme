@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment variables (NEVER commit these!)
+.env
+.env.local
+.env.production
+server/.env
+
+# Database files (use cloud DB in production)
+*.sqlite
+database.sqlite
+server/database.sqlite
+uploads/
+
+# Build output
+client/dist/
+client/build/
+
+# Logs
+*.log
+npm-debug.log*
+out.txt
+test_output.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vite cache
+.vite/
+client/.vite/
