@@ -115,8 +115,8 @@ app.listen(PORT, async () => {
     try {
         await sequelize.authenticate();
         // Sync models with DB (alter: true updates schema without dropping data)
-        // await sequelize.sync({ alter: true });
-        console.log('Database connected!');
+        await sequelize.sync({ alter: true });
+        console.log('Database connected and synced!');
         await seedCategories(); // Run seeder
     } catch (error) {
         console.error('Unable to connect to the database:', error);
