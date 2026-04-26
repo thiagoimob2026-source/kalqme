@@ -23,13 +23,8 @@ const allowedOrigins = process.env.NODE_ENV === 'production'
     : ['http://localhost:5173', 'http://localhost:3000', 'http://localhost:4173'];
 
 app.use(cors({
-    origin: function (origin, callback) {
-        // Allow requests with no origin (e.g., mobile apps, Postman)
-        if (!origin) return callback(null, true);
-        if (process.env.NODE_ENV !== 'production') return callback(null, true);
-        if (allowedOrigins.includes(origin)) return callback(null, true);
-        callback(new Error('Not allowed by CORS'));
-    },
+    origin: true, // Allows all origins in production for now to ensure connectivity
+    credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
