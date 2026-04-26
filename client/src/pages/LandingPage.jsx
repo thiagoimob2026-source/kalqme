@@ -87,18 +87,24 @@ const LandingPage = () => {
             </header>
 
             {/* Stats Section */}
+            {/* Stats Section */}
+            <section className="stats">
                 <div className="stat-item">
+                    <div className="stat-icon">📱</div>
                     <h3>100% Digital</h3>
                     <p>Atendimento Online</p>
                 </div>
                 <div className="stat-item">
+                    <div className="stat-icon">🇧🇷</div>
                     <h3>Todo o Brasil</h3>
                     <p>Suporte Nacional</p>
                 </div>
                 <div className="stat-item">
+                    <div className="stat-icon">🛡️</div>
                     <h3>Segurança</h3>
                     <p>Dados Criptografados</p>
                 </div>
+            </section>
 
 
 
