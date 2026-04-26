@@ -152,7 +152,7 @@ const Customers = () => {
                 <header className="flex justify-between items-center mb-4">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-800">Gestão de Clientes e Recorrência</h1>
-                        <p className="text-gray-600 italic">"Para médicos e terapeutas, o sucesso está na fidelização."</p>
+                        <p className="text-gray-600 italic">"Atendimento especialista em MEI - Microempreendedor Individual."</p>
                     </div>
                     <div className="flex gap-2">
                         <button

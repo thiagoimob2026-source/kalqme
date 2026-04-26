@@ -25,18 +25,17 @@ const LandingPage = () => {
             {/* Hero Section */}
             <header className="hero">
                 <div className="hero-content">
-                    <div className="hero-tag">✨ Contabilidade e Gestão Especializada para Nordeste</div>
+                    <div className="hero-tag">✨ Contabilidade e Gestão Especializada para todo o Brasil</div>
                     <h1 className="hero-title">
-                        A solução definitiva para o MEI em <span className="gradient-text">Pernambuco e Paraíba.</span>
+                        A solução definitiva para o <span className="gradient-text">Microempreendedor Individual.</span>
                     </h1>
                     <p className="hero-subtitle">
                         Foque no seu negócio e deixe a burocracia conosco. 
-                        A plataforma ideal para <strong>Microempreendedores Individuais</strong> de Recife, João Pessoa, Campina Grande e região.
+                        A plataforma ideal para <strong>Microempreendedores Individuais</strong> em todo o Brasil.
                         Organize seu fluxo de caixa, emita DASN, eSocial e gerencie seu IRPF com suporte contábil especializado.
                     </p>
                     <div className="hero-actions">
-                        <Link to="/register" className="btn-hero-primary">Começar Agora - R$ 14,90/mês</Link>
-                        <a href="#regions" className="btn-hero-secondary">Onde Atuamos</a>
+                        <Link to="/register" className="btn-hero-primary">Começar Agora - R$ 54,90/mês</Link>
                     </div>
                 </div>
                 <div className="hero-visual">
@@ -82,48 +81,30 @@ const LandingPage = () => {
                     <div className="floating-badge badge-3">👷 eSocial Simplificado</div>
                     <div className="floating-badge badge-4">⚖️ Regularização Fiscal</div>
                     <div className="floating-badge badge-5">💰 Gestão Financeira</div>
-                    <div className="floating-badge badge-6">📍 Recife e João Pessoa</div>
+                    <div className="floating-badge badge-6">📍 Atendimento em todo o Brasil</div>
                     <div className="floating-badge badge-7">🧠 Consultor IA</div>
                 </div>
             </header>
 
             {/* Stats Section */}
-            <section className="stats">
                 <div className="stat-item">
                     <h3>100% Digital</h3>
                     <p>Atendimento Online</p>
                 </div>
                 <div className="stat-item">
-                    <h3>Pernambuco</h3>
-                    <p>Foco Regional</p>
+                    <h3>Todo o Brasil</h3>
+                    <p>Suporte Nacional</p>
                 </div>
                 <div className="stat-item">
-                    <h3>Paraíba</h3>
-                    <p>Suporte Exclusivo</p>
+                    <h3>Segurança</h3>
+                    <p>Dados Criptografados</p>
                 </div>
-            </section>
 
-            {/* Regions Section (New for SEO) */}
-            <section id="regions" className="regions-section">
-                <div className="regions-content">
-                    <h2 className="section-title">Especialista em <span className="gradient-text">Mercado Regional</span></h2>
-                    <p className="section-subtitle">Conhecemos os prazos e particularidades das prefeituras e órgãos estaduais do Nordeste.</p>
-                    <div className="regions-grid">
-                        <div className="region-card">
-                            <h3> Pernambuco</h3>
-                            <p>Recife, Olinda, Jaboatão, Caruaru, Petrolina e região.</p>
-                        </div>
-                        <div className="region-card">
-                            <h3> Paraíba</h3>
-                            <p>João Pessoa, Campina Grande, Santa Rita, Patos e região.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* Niches Section */}
             <section className="niches">
-                <h2 className="section-title">Serviços Contábeis para o <span className="gradient-text">MEI Nordestino</span></h2>
+                <h2 className="section-title">Serviços Contábeis para o <span className="gradient-text">MEI Brasileiro</span></h2>
                 <div className="niches-chips">
                     <span>Abertura de MEI</span>
                     <span>Declaração Anual (DASN)</span>
@@ -142,7 +123,7 @@ const LandingPage = () => {
                     <div className="feature-card" style={{ background: 'var(--gradient-accent)', borderColor: 'var(--primary)' }}>
                         <div className="feature-icon">🤝</div>
                         <h3>Acompanhamento de Ponta a Ponta</h3>
-                        <p>Desde a abertura até a entrega de obrigações acessórias, regularização e dúvidas diretamente com um <strong>contador MEI Pernambuco/Paraíba</strong>.</p>
+                        <p>Desde a abertura até a entrega de obrigações acessórias, regularização e dúvidas diretamente com um <strong>especialista em MEI</strong>.</p>
                     </div>
                     <div className="feature-card">
                         <div className="feature-icon">📊</div>
@@ -177,8 +158,8 @@ const LandingPage = () => {
                             <div className="card-tag">Gestão Inteligente Pessoal</div>
                             <h3>Kalq MEI Premium</h3>
                             <p className="price-old">Assinatura acessível para qualquer MEI</p>
-                            <p className="price">R$ 14,90<span className="price-label">/MÊS</span></p>
-                            <p className="one-time-text">ou R$ 129,00/ano à vista.</p>
+                            <p className="price">R$ 54,90<span className="price-label">/MÊS</span></p>
+                            <p className="one-time-text">ou R$ 490,00/ano à vista.</p>
                         </div>
                         <ul className="pricing-features">
                             <li>✓ Fluxo de Caixa Ilimitado</li>
@@ -186,7 +167,7 @@ const LandingPage = () => {
                             <li>✓ Consultor IA Financeiro</li>
                             <li>✓ Alertas de Riscos e Vencimentos</li>
                             <li>✓ Emissão de Relatórios Gerenciais (PDF)</li>
-                            <li>✓ Atendimento Preferencial Nordeste</li>
+                            <li>✓ Atendimento Especializado Nacional</li>
                         </ul>
                         <Link to="/register" className="btn-pricing btn-gradient">Acessar a Plataforma</Link>
                     </div>
@@ -196,8 +177,8 @@ const LandingPage = () => {
             {/* CTA Section */}
             <section className="cta">
                 <div className="cta-content">
-                    <h2>Gestão e Contabilidade MEI em PE e PB.</h2>
-                    <p>Foque em vender e crescer enquanto cuidamos da sua conformidade fiscal em Pernambuco e Paraíba.</p>
+                    <h2>Gestão e Contabilidade MEI em todo o Brasil.</h2>
+                    <p>Foque em vender e crescer enquanto cuidamos da sua conformidade fiscal.</p>
                     <Link to="/register" className="btn-hero-primary">Criar Minha Conta Agora</Link>
                 </div>
             </section>
@@ -213,12 +194,12 @@ const LandingPage = () => {
                             </div>
                             <span className="logo-text text-white">Kalq<span>.me</span></span>
                         </div>
-                        <p>A solução contábil definitiva para o MEI em Pernambuco e Paraíba.</p>
+                        <p>A solução contábil definitiva para o MEI.</p>
                     </div>
                     <div className="footer-links">
                         <h4>Serviços</h4>
-                        <a href="#">Contador MEI Recife</a>
-                        <a href="#">Contador MEI João Pessoa</a>
+                        <a href="#">Abertura de MEI</a>
+                        <a href="#">Alteração de Dados</a>
                         <a href="#">Declaração Anual</a>
                     </div>
                     <div className="footer-links">
@@ -232,7 +213,7 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p>&copy; 2026 Kalq. Atendimento especializado em Pernambuco e Paraíba.</p>
+                    <p>&copy; 2026 Kalq. Atendimento especializado em todo o Brasil.</p>
                 </div>
             </footer>
         </div>
