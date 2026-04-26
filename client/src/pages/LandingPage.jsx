@@ -154,9 +154,10 @@ const LandingPage = () => {
 
             {/* Pricing Section */}
             <section id="pricing" className="pricing">
-                <div className="pricing-grid" style={{ gridTemplateColumns: '1fr', gap: '2rem' }}>
-                    {/* Plan 1: Software Only (Yearly) */}
-                    <div className="pricing-card featured" style={{ maxWidth: '600px', margin: '0 auto' }}>
+                <h2 className="section-title">Escolha o seu <span className="gradient-text">Plano</span></h2>
+                <div className="pricing-grid">
+                    {/* Plan 1: MEI Premium */}
+                    <div className="pricing-card featured">
                         <div className="promo-badge">OFERTA DE LANÇAMENTO</div>
                         <div className="pricing-header">
                             <div className="card-tag">Gestão Inteligente Pessoal</div>
@@ -174,6 +175,26 @@ const LandingPage = () => {
                             <li>✓ Atendimento Especializado Nacional</li>
                         </ul>
                         <Link to="/register" className="btn-pricing btn-gradient">Acessar a Plataforma</Link>
+                    </div>
+
+                    {/* Plan 2: For Accountants (White Label) */}
+                    <div className="pricing-card concierge">
+                        <div className="pricing-header">
+                            <div className="card-tag">Parceria Estratégica</div>
+                            <h3>Kalq para Contadores</h3>
+                            <p className="price-old">Sua marca, nossa tecnologia</p>
+                            <p className="price" style={{ fontSize: '1.5rem' }}>Personalizado</p>
+                            <p className="one-time-text">Sob consulta</p>
+                        </div>
+                        <ul className="pricing-features">
+                            <li>✓ Sistema com sua Logomarca (White Label)</li>
+                            <li>✓ Gerenciamento de sua Base de Clientes</li>
+                            <li>✓ Implantação e Configuração Completa</li>
+                            <li>✓ Suporte Técnico Especializado</li>
+                            <li>✓ Manutenção e Updates Garantidos</li>
+                            <li>✓ Painel de Controle para o Escritório</li>
+                        </ul>
+                        <a href="mailto:contato@kalq.me?subject=Interesse no Plano para Contadores" className="btn-pricing">Falar com Consultor</a>
                     </div>
                 </div>
             </section>
