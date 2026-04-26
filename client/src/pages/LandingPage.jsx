@@ -30,9 +30,7 @@ const LandingPage = () => {
                         A solução definitiva para o <span className="gradient-text">Microempreendedor Individual.</span>
                     </h1>
                     <p className="hero-subtitle">
-                        Foque no seu negócio e deixe a burocracia conosco. 
-                        A plataforma ideal para <strong>Microempreendedores Individuais</strong> em todo o Brasil.
-                        Organize seu fluxo de caixa, emita DASN, eSocial e gerencie seu IRPF com suporte contábil especializado.
+                        Muito mais que um sistema de acompanhamento: somos a união entre <strong>Análise Financeira com IA</strong> e o suporte de um <strong>Contador Real dedicado</strong> para suas dúvidas e serviços. A solução completa para o MEI focar no que importa: crescer.
                     </p>
                     <div className="hero-actions">
                         <Link to="/register" className="btn-hero-primary">Começar Agora - R$ 54,90/mês</Link>
@@ -127,9 +125,9 @@ const LandingPage = () => {
                 <h2 className="section-title">Gestão Simplificada para o seu <span className="gradient-text">Dia a Dia</span></h2>
                 <div className="features-grid">
                     <div className="feature-card" style={{ background: 'var(--gradient-accent)', borderColor: 'var(--primary)' }}>
-                        <div className="feature-icon">🤝</div>
-                        <h3>Acompanhamento de Ponta a Ponta</h3>
-                        <p>Desde a abertura até a entrega de obrigações acessórias, regularização e dúvidas diretamente com um <strong>especialista em MEI</strong>.</p>
+                        <div className="feature-icon">👨‍💼</div>
+                        <h3>Contador Real Dedicado</h3>
+                        <p>Diferente de outros apps, aqui você tem acesso a um <strong>Contador Real</strong> para tirar dúvidas e realizar serviços contábeis especializados.</p>
                     </div>
                     <div className="feature-card">
                         <div className="feature-icon">📊</div>
