@@ -445,6 +445,87 @@ const Dashboard = () => {
                 doc.text(`TOTAL GERAL DE RECEITAS: R$ ${totalGeralReceitas.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`, 196, currentYReceitas, { align: 'right' });
             }
 
+            // --- SECTION 4: RELATÓRIO DE DESPESAS SEPARADAS ---
+            if (grouped['Despesa'].length > 0) {
+                doc.addPage();
+                doc.setFontSize(16);
+                doc.setTextColor(33, 150, 243);
+                doc.text('4. Relatório de Despesas Separadas', 14, 20);
+
+                doc.setFontSize(10);
+                doc.setTextColor(100);
+                doc.text(`Detalhamento exclusivo de despesas de ${monthName}/${selectedYear} agrupado por categorias`, 14, 27);
+
+                let currentYDespesas = 35;
+
+                // Group expenses by Category
+                const despesasByCategory = {};
+                grouped['Despesa'].forEach(t => {
+                    const cat = t.classification?.category || 'Outras Despesas';
+                    if (!despesasByCategory[cat]) despesasByCategory[cat] = [];
+                    despesasByCategory[cat].push(t);
+                });
+
+                Object.keys(despesasByCategory).forEach(category => {
+                    const items = despesasByCategory[category];
+
+                    if (currentYDespesas > 250) {
+                        doc.addPage();
+                        currentYDespesas = 20;
+                    }
+
+                    doc.setFontSize(12);
+                    doc.setTextColor(231, 76, 60); // Red for expenses
+                    doc.setFont(undefined, 'bold');
+                    doc.text(`CATEGORIA: ${category.toUpperCase()}`, 14, currentYDespesas);
+                    currentYDespesas += 5;
+
+                    const tableData = items.map(t => [
+                        t.RELEASE_DATE,
+                        t.accountName || '-',
+                        t.classification?.subCategory || '-',
+                        t.TRANSACTION_NET_AMOUNT
+                    ]);
+
+                    autoTable(doc, {
+                        startY: currentYDespesas,
+                        head: [['Data', 'Conta/Banco', 'Detalhe', 'Valor (R$)']],
+                        body: tableData,
+                        theme: 'striped',
+                        headStyles: { fillColor: [231, 76, 60] },
+                        styles: { fontSize: 7 },
+                        columnStyles: { 3: { halign: 'right', fontStyle: 'bold' } }
+                    });
+
+                    const groupTotal = items.reduce((acc, curr) => {
+                        const val = parseFloat(curr.TRANSACTION_NET_AMOUNT.replace(/\./g, '').replace(',', '.')) || 0;
+                        return acc + val;
+                    }, 0);
+
+                    currentYDespesas = doc.lastAutoTable.finalY + 8;
+                    doc.setFontSize(9);
+                    doc.setTextColor(0);
+                    doc.text(`Total ${category}: R$ ${groupTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`, 196, currentYDespesas, { align: 'right' });
+                    currentYDespesas += 12;
+                });
+
+                // Total Geral de Despesas
+                const totalGeralDespesas = grouped['Despesa'].reduce((acc, curr) => {
+                    const val = parseFloat(curr.TRANSACTION_NET_AMOUNT.replace(/\./g, '').replace(',', '.')) || 0;
+                    return acc + val;
+                }, 0);
+
+                if (currentYDespesas > 270) {
+                    doc.addPage();
+                    currentYDespesas = 20;
+                }
+
+                doc.setFontSize(11);
+                doc.setTextColor(0);
+                doc.setFont(undefined, 'bold');
+                doc.text(`TOTAL GERAL DE DESPESAS: R$ ${totalGeralDespesas.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`, 196, currentYDespesas, { align: 'right' });
+            }
+
             doc.save(`Relatorio_Fluxo_Caixa_Analitico_${selectedMonth}_${selectedYear}.pdf`);
         } catch (err) {
             console.error('PDF Error:', err);
