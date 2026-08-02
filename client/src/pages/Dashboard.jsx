@@ -364,6 +364,87 @@ const Dashboard = () => {
             renderGroupTable('Pessoal', grouped['Pessoal'], [211, 84, 0]);
             renderGroupTable('Pendente / Outros', grouped['Pendente / Outros'], [149, 165, 166]);
 
+            // --- SECTION 3: RELATÓRIO DE RECEITAS SEPARADAS ---
+            if (grouped['Receita'].length > 0) {
+                doc.addPage();
+                doc.setFontSize(16);
+                doc.setTextColor(33, 150, 243);
+                doc.text('3. Relatório de Receitas Separadas', 14, 20);
+
+                doc.setFontSize(10);
+                doc.setTextColor(100);
+                doc.text(`Detalhamento exclusivo de receitas de ${monthName}/${selectedYear} agrupado por categorias`, 14, 27);
+
+                let currentYReceitas = 35;
+
+                // Group revenues by Category
+                const receitasByCategory = {};
+                grouped['Receita'].forEach(t => {
+                    const cat = t.classification?.category || 'Outras Receitas';
+                    if (!receitasByCategory[cat]) receitasByCategory[cat] = [];
+                    receitasByCategory[cat].push(t);
+                });
+
+                Object.keys(receitasByCategory).forEach(category => {
+                    const items = receitasByCategory[category];
+
+                    if (currentYReceitas > 250) {
+                        doc.addPage();
+                        currentYReceitas = 20;
+                    }
+
+                    doc.setFontSize(12);
+                    doc.setTextColor(46, 204, 113); // Green for revenues
+                    doc.setFont(undefined, 'bold');
+                    doc.text(`CATEGORIA: ${category.toUpperCase()}`, 14, currentYReceitas);
+                    currentYReceitas += 5;
+
+                    const tableData = items.map(t => [
+                        t.RELEASE_DATE,
+                        t.accountName || '-',
+                        t.classification?.subCategory || '-',
+                        t.TRANSACTION_NET_AMOUNT
+                    ]);
+
+                    autoTable(doc, {
+                        startY: currentYReceitas,
+                        head: [['Data', 'Conta/Banco', 'Detalhe', 'Valor (R$)']],
+                        body: tableData,
+                        theme: 'striped',
+                        headStyles: { fillColor: [46, 204, 113] },
+                        styles: { fontSize: 7 },
+                        columnStyles: { 3: { halign: 'right', fontStyle: 'bold' } }
+                    });
+
+                    const groupTotal = items.reduce((acc, curr) => {
+                        const val = parseFloat(curr.TRANSACTION_NET_AMOUNT.replace(/\./g, '').replace(',', '.')) || 0;
+                        return acc + val;
+                    }, 0);
+
+                    currentYReceitas = doc.lastAutoTable.finalY + 8;
+                    doc.setFontSize(9);
+                    doc.setTextColor(0);
+                    doc.text(`Total ${category}: R$ ${groupTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`, 196, currentYReceitas, { align: 'right' });
+                    currentYReceitas += 12;
+                });
+
+                // Total Geral de Receitas
+                const totalGeralReceitas = grouped['Receita'].reduce((acc, curr) => {
+                    const val = parseFloat(curr.TRANSACTION_NET_AMOUNT.replace(/\./g, '').replace(',', '.')) || 0;
+                    return acc + val;
+                }, 0);
+
+                if (currentYReceitas > 270) {
+                    doc.addPage();
+                    currentYReceitas = 20;
+                }
+
+                doc.setFontSize(11);
+                doc.setTextColor(0);
+                doc.setFont(undefined, 'bold');
+                doc.text(`TOTAL GERAL DE RECEITAS: R$ ${totalGeralReceitas.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`, 196, currentYReceitas, { align: 'right' });
+            }
+
             doc.save(`Relatorio_Fluxo_Caixa_Analitico_${selectedMonth}_${selectedYear}.pdf`);
         } catch (err) {
             console.error('PDF Error:', err);

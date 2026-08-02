@@ -9,6 +9,8 @@ import Admin from './pages/Admin';
 import Budget from './pages/Budget';
 import Customers from './pages/Customers';
 import AIAnalysis from './pages/AIAnalysis';
+import NfeSettings from './pages/NfeSettings';
+import Invoices from './pages/Invoices';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -56,6 +58,22 @@ function App() {
           element={
             <ProtectedRoute>
               <AIAnalysis />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/nfe-settings"
+          element={
+            <ProtectedRoute>
+              <NfeSettings />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/invoices"
+          element={
+            <ProtectedRoute>
+              <Invoices />
             </ProtectedRoute>
           }
         />

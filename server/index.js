@@ -13,6 +13,7 @@ const budgetRoutes = require('./routes/budget');
 const customerRoutes = require('./routes/customers');
 const gamificationRoutes = require('./routes/gamification');
 const aiAnalysisRoutes = require('./routes/aiAnalysis');
+const nfeRoutes = require('./routes/nfe');
 
 const app = express();
 const PORT = process.env.PORT || 3005;
@@ -93,6 +94,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/budget', budgetRoutes);
 app.use('/api/gamification', gamificationRoutes);
 app.use('/api/ai-analysis', aiAnalysisRoutes);
+app.use('/api/nfe', nfeRoutes);
 
 // Root route for testing
 app.get('/', (req, res) => {
